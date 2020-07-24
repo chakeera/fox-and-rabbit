@@ -1,9 +1,6 @@
 package io.muic.ooc.fab;
 
 
-import io.muic.ooc.fab.Field;
-import io.muic.ooc.fab.Location;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,8 +10,8 @@ public class Tiger extends Animal {
     private int foodLevel;
 
     @Override
-    public void initialize(boolean randomAge, Field field, Location location) {
-        super.initialize(randomAge, field, location);
+    public void init(boolean randomAge, Field field, Location location) {
+        super.init(randomAge, field, location);
         foodLevel = RANDOM.nextInt(AnimalType.FOX.getFoodValue());
     }
 
@@ -74,9 +71,7 @@ public class Tiger extends Animal {
                     return where;
                 }
             }
-            /*
-             * Hunt a fox also
-             */
+
             if (animal instanceof Fox) {
                 Fox fox = (Fox) animal;
                 if (fox.isAlive()) {

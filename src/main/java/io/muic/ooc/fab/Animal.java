@@ -6,26 +6,16 @@ import java.util.Random;
 public abstract class Animal implements Methods {
     // Characteristics shared by all animals (class variables).
 
-    // Random generator
     protected static final Random RANDOM = new Random();
 
-    // Encapsulation
-    // Whether the animal is alive or not.
     private boolean alive = true;
 
-    // The animal's position.
     private Location location;
 
-    // The field occupied.
     protected Field field;
 
-    // Individual characteristics (instance fields).
-    // The animal's age.
     private int age = 0;
 
-    /*
-     * These methods will be changed according to each species
-     */
     public abstract Location moveToNewLocation();
 
     protected abstract int getBreedingAge();
@@ -37,7 +27,7 @@ public abstract class Animal implements Methods {
     protected abstract int getMaxAge();
 
     @Override
-    public void initialize(boolean randomAge, Field field, Location location) {
+    public void init(boolean randomAge, Field field, Location location) {
         this.field = field;
         setLocation(location);
         if (randomAge) {
@@ -50,13 +40,12 @@ public abstract class Animal implements Methods {
         incrementAge();
         if (isAlive()) {
             giveBirth(newAnimals);
-            // Try to move into a free location.
+
             Location newLocation = moveToNewLocation();
 
             if (newLocation != null) {
                 setLocation(newLocation);
             } else {
-                // Overcrowding.
                 setDead();
             }
         }
@@ -102,15 +91,12 @@ public abstract class Animal implements Methods {
 
     @Override
     public void giveBirth(List<Methods> newAnimals) {
-        // New animals are born into adjacent locations.
-        // Get a list of adjacent free locations.
+
         List<Location> free = field.getFreeAdjacentLocations(location);
         int births = breed();
         for (int b = 0; b < births && free.size() > 0; b++) {
             Location loc = free.remove(0);
-            /*
-            ? Need a factory for abstract class
-             */
+
             Animal young = breedOne(field, loc);
             newAnimals.add(young);
         }

@@ -15,7 +15,7 @@ public class FieldPopulator {
         }}};
 
 
-        // randomly populate the field with foxes and rabbits
+
         public void populate(Field field, List<Methods> animals) {
             field.clear();
             for (int row = 0; row < field.getDepth(); row++) {

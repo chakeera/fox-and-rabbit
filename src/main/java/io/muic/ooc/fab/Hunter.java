@@ -1,8 +1,5 @@
 package io.muic.ooc.fab;
 
-import io.muic.ooc.fab.Field;
-import io.muic.ooc.fab.Location;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,8 +14,8 @@ public class Hunter extends Animal {
      * @param location  The location within the field.
      */
     @Override
-    public void initialize(boolean randomAge, Field field, Location location) {
-        super.initialize(randomAge, field, location);
+    public void init(boolean randomAge, Field field, Location location) {
+        super.init(randomAge, field, location);
     }
 
     @Override
@@ -45,7 +42,6 @@ public class Hunter extends Animal {
         return newLocation;
     }
 
-    // make it immortal;
     @Override
     protected int getMaxAge() {
         return Integer.MAX_VALUE;
@@ -76,9 +72,7 @@ public class Hunter extends Animal {
                     return where;
                 }
             }
-            /*
-             * Hunt a tiger also
-             */
+
             if (animal instanceof Tiger) {
                 Tiger tiger = (Tiger) animal;
                 if (tiger.isAlive()) {

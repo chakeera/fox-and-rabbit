@@ -1,21 +1,16 @@
 package io.muic.ooc.fab;
 
-import io.muic.ooc.fab.Field;
-import io.muic.ooc.fab.Location;
-
 import java.util.List;
 import java.util.Iterator;
 
 
 public class Fox extends Animal {
-    // Characteristics shared by all foxes (class variables).
 
-    // The fox's food level, which is increased by eating rabbits.
     private int foodLevel;
 
     @Override
-    public void initialize(boolean randomAge, Field field, Location location) {
-        super.initialize(randomAge, field, location);
+    public void init(boolean randomAge, Field field, Location location) {
+        super.init(randomAge, field, location);
         foodLevel = RANDOM.nextInt(AnimalType.RABBIT.getFoodValue());
     }
 

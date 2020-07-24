@@ -6,9 +6,9 @@ import java.awt.*;
 public enum AnimalType {
 
     RABBIT(0.1, Rabbit.class, Color.BLUE, 8),
-    FOX(0.1, Fox.class, Color.ORANGE, 20),
+    FOX(0.1, Fox.class, Color.green, 20),
     TIGER(0.03, Tiger.class, Color.YELLOW, 40),
-    HUNTER(0.0009, Hunter.class, Color.BLACK, 0);
+    HUNTER(0.0009, Hunter.class, Color.RED, 0);
 
     private double breedingProbability;
 
@@ -22,7 +22,6 @@ public enum AnimalType {
         this.breedingProbability = breedingProbability;
         this.animalClass = animalClass;
         this.color = color;
-        // adding the food value for each animals for solving dependence problem //
         this.foodValue = foodValue;
     }
 

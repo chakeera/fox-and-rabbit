@@ -1,7 +1,5 @@
 package io.muic.ooc.fab;
 
-import io.muic.ooc.fab.Animal;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +20,7 @@ public class AnimalFactory {
         if (animalClass != null) {
             try {
                 Animal animal = (Animal) animalClass.newInstance();
-                animal.initialize(true, field, location);
+                animal.init(true, field, location);
                 return animal;
             } catch (InstantiationException e) {
                 e.printStackTrace();
